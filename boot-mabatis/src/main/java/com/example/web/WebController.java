@@ -62,4 +62,9 @@ public class WebController {
 	        userService.delete(id);
 	        return "redirect:/list";
 	    }
+	    
+	    @RequestMapping("/baidumap")
+	    public String baidumap() {
+	        return "user/baidumap";
+	    }
 }
