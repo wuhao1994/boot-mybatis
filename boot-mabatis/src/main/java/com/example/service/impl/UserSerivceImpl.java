@@ -6,7 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.example.entity.UserEntity;
+import com.example.entity.User;
+import com.example.entity.UserExample;
 import com.example.mapper.UserMapper;
 import com.example.service.UserService;
 @Service
@@ -14,30 +15,30 @@ public class UserSerivceImpl implements UserService {
 	@Resource
 	private UserMapper userMapper;
 	@Override
-	public List<UserEntity> getAll() {
+	public List<User> getAll() {
 		// TODO Auto-generated method stub
-		return userMapper.getAll();
+		return userMapper.selectByExample(new UserExample());
 	}
 
 	@Override
-	public UserEntity getOne(Long id) {
+	public User getOne(Long id) {
 		// TODO Auto-generated method stub
-		return userMapper.getOne(id);
+		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public void insert(UserEntity user) {
+	public void insert(User user) {
 		userMapper.insert(user);
 	}
 
 	@Override
-	public void update(UserEntity user) {
-		userMapper.update(user);
+	public void update(User user) {
+		userMapper.updateByPrimaryKey(user);
 	}
 
 	@Override
 	public void delete(Long id) {
-		userMapper.delete(id);
+		userMapper.deleteByPrimaryKey(id);
 	}
 
 }

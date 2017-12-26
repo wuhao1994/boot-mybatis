@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.entity.UserEntity;
+import com.example.entity.User;
 import com.example.service.UserService;
 
 
@@ -27,7 +27,7 @@ public class WebController {
 	
 	 @RequestMapping("/list")
 	    public String list(Model model) {
-	        List<UserEntity> users=userService.getAll();
+	        List<User> users=userService.getAll();
 	        model.addAttribute("users", users);
 	        return "user/list";
 	    }
@@ -38,20 +38,20 @@ public class WebController {
 	    }
 
 	    @RequestMapping("/add")
-	    public String add(UserEntity user) {
+	    public String add(User user) {
 	        userService.insert(user);
 	        return "redirect:/list";
 	    }
 
 	    @RequestMapping("/toEdit")
 	    public String toEdit(Model model,Long id) {
-	    	UserEntity user=userService.getOne(id);
+	    	User user=userService.getOne(id);
 	        model.addAttribute("user", user);
 	        return "user/userEdit";
 	    }
 
 	    @RequestMapping("/edit")
-	    public String edit(UserEntity user) {
+	    public String edit(User user) {
 	        userService.update(user);
 	        return "redirect:/list";
 	    }
