@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.entity.User;
 import com.example.entity.UserExample;
-import com.example.mapper.UserMapper;
+import com.example.mapper.test1.UserMapper;
 import com.example.service.UserService;
 @Service
 public class UserSerivceImpl implements UserService {
